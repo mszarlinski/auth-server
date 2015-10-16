@@ -24,9 +24,6 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
     private static final String SECRET = "secret";
 
-    private static final String ROLE_USER = "ROLE_USER";
-
-
     @Autowired
     private AuthenticationManager authenticationManager;
 
@@ -37,7 +34,12 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 .secret(SECRET)
                 .authorizedGrantTypes("password")
                 .resourceIds(RESOURCE_ID)
-                .authorities(ROLE_USER)
+                .scopes("read", "write")
+                .and()
+                .withClient(CLIENT_ID)
+                .secret(SECRET)
+                .authorizedGrantTypes("password")
+                .resourceIds(RESOURCE_ID)
                 .scopes("read", "write");
     }
 

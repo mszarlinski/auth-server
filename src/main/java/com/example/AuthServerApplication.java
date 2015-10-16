@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  --header 'cache-control: no-cache' \
  --header 'content-type: application/x-www-form-urlencoded' \
  --header 'postman-token: fc77357c-28bd-3ded-750b-5dc3bbfd0e81' \
- --data 'username=mszarl&password=secret&client_id=mszarl&client_secret=&grant_type=password'
+ --data 'username=mszarl&password=secret&client_id=resource-server&client_secret=&grant_type=password'
  */
 @SpringBootApplication
 public class AuthServerApplication {

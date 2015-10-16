@@ -8,13 +8,16 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
-import static java.util.Collections.singletonList;
+import static java.util.Arrays.asList;
 
 /**
  * Created by Maciej on 2015-10-16.
  */
 @Configuration
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+
+    private static final String ROLE_USER = "ROLE_USER";
+    private static final String ROLE_KILLER = "ROLE_KILLER";
 
     @Autowired
     protected void registerAuthentication(
@@ -26,8 +29,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     public UserDetailsService userDetailsService() {
 
         return new InMemoryUserDetailsManager(
-                singletonList(
-                        User.create("mszarl", "secret", "ROLE_USER")));
+                asList(
+                        User.create("mszarl", "secret", "ROLE_USER"),
+                        User.create("killer", "killer", "ROLE_KILLER")));
     }
+
+
 }
 
