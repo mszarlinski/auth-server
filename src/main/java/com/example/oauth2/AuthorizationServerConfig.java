@@ -15,7 +15,6 @@ import org.springframework.security.oauth2.provider.token.DefaultAccessTokenConv
  */
 @Configuration
 @EnableAuthorizationServer
-//@Order(Ordered.LOWEST_PRECEDENCE)
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
 
     private static final String RESOURCE_ID = "person";
@@ -26,26 +25,26 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
     private static final String ROLE_USER = "ROLE_USER";
 
+
     @Autowired
     private AuthenticationManager authenticationManager;
-
 
     @Override
     public void configure(final ClientDetailsServiceConfigurer clients) throws Exception {
         clients.inMemory()
-            .withClient(CLIENT_ID)
-            .secret(SECRET)
-            .authorizedGrantTypes("password", "authorization_code", "refresh_token")
-            .resourceIds(RESOURCE_ID)
-            .authorities(ROLE_USER)
-            .scopes("read", "write");
+                .withClient(CLIENT_ID)
+                .secret(SECRET)
+                .authorizedGrantTypes("password")
+                .resourceIds(RESOURCE_ID)
+                .authorities(ROLE_USER)
+                .scopes("read", "write");
     }
 
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints)
-        throws Exception {
+            throws Exception {
         endpoints.authenticationManager(authenticationManager).accessTokenConverter(
-            defaultAccessTokenConverter());
+                defaultAccessTokenConverter());
     }
 
     @Bean
