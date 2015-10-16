@@ -8,7 +8,7 @@ import com.google.common.io.BaseEncoding;
 public class Base64Encoder {
 
     public static void main(String[] args) {
-        final String clientId = "mszarl",
+        final String clientId = "resource-server",
                 clientSecret = "secret";
 
         final String base64Auth = BaseEncoding.base64().encode((clientId + ":" + clientSecret).getBytes());

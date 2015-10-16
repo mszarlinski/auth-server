@@ -8,6 +8,7 @@ import org.springframework.security.oauth2.config.annotation.configurers.ClientD
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
+import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.token.DefaultAccessTokenConverter;
 
 /**
@@ -19,7 +20,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
     private static final String RESOURCE_ID = "person";
 
-    private static final String CLIENT_ID = "mszarl";
+    private static final String CLIENT_ID = "resource-server";
 
     private static final String SECRET = "secret";
 
@@ -50,5 +51,10 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Bean
     public DefaultAccessTokenConverter defaultAccessTokenConverter() {
         return new DefaultAccessTokenConverter();
+    }
+
+    @Override
+    public void configure(final AuthorizationServerSecurityConfigurer security) throws Exception {
+        security.checkTokenAccess("authenticated");
     }
 }
