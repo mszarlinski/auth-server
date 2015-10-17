@@ -1,4 +1,4 @@
-package com.example.oauth2;
+package pl.mszarlinski.oauth2.authServer.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

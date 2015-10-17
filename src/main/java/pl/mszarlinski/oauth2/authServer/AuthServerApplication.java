@@ -1,4 +1,4 @@
-package com.example;
+package pl.mszarlinski.oauth2.authServer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

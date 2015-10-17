@@ -1,5 +1,6 @@
-package com.example;
+package pl.mszarlinski;
 
+import pl.mszarlinski.oauth2.authServer.AuthServerApplication;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.web.WebAppConfiguration;

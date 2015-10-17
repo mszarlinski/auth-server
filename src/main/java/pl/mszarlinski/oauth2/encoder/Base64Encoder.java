@@ -1,4 +1,4 @@
-package com.example;
+package pl.mszarlinski.oauth2.encoder;
 
 import com.google.common.io.BaseEncoding;
 
