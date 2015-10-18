@@ -14,8 +14,8 @@ import org.springframework.security.oauth2.provider.token.DefaultAccessTokenConv
 /**
  * @author mszarlinski on 2015-10-12.
  */
-@Configuration
 @EnableAuthorizationServer
+@Configuration
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
 
     private static final String RESOURCE_ID = "person";
