@@ -24,6 +24,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
     private static final String SECRET = "secret";
 
+    private static final String PASSWORD_GRANT_TYPE = "password";
+
     @Autowired
     private AuthenticationManager authenticationManager;
 
@@ -32,13 +34,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
         clients.inMemory()
                 .withClient(CLIENT_ID)
                 .secret(SECRET)
-                .authorizedGrantTypes("password")
-                .resourceIds(RESOURCE_ID)
-                .scopes("read", "write")
-                .and()
-                .withClient(CLIENT_ID)
-                .secret(SECRET)
-                .authorizedGrantTypes("password")
+                .authorizedGrantTypes(PASSWORD_GRANT_TYPE)
                 .resourceIds(RESOURCE_ID)
                 .scopes("read", "write");
     }
@@ -57,6 +53,6 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
     @Override
     public void configure(final AuthorizationServerSecurityConfigurer security) throws Exception {
-        security.checkTokenAccess("authenticated");
+        security.checkTokenAccess("authenticated"); // enable '/oauth/check_token' endpoint
     }
 }

@@ -33,8 +33,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
         return new InMemoryUserDetailsManager(
                 asList(
-                        User.create("mszarl", "secret", "ROLE_USER"),
-                        User.create("killer", "killer", "ROLE_KILLER")));
+                        User.create("mszarl", "secret", ROLE_USER),
+                        User.create("killer", "killer", ROLE_KILLER)));
     }
 
 
